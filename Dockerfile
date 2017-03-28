@@ -1,6 +1,6 @@
 FROM fedora
 
-MAINTAINER Guillaume Scheibel <guillaume.scheibel@gmail.com>
+MAINTAINER Daniel Mulholland <dan.mulholland@gmail.com>
 
 ENV JAVA_HOME /jdk1.8.0_112
 ENV PATH $PATH:$JAVA_HOME/bin:/fopub/bin
@@ -11,6 +11,7 @@ ENV ASCIIDOCTOR_VERSION "1.5.5"
 RUN dnf install -y tar \
     make \
     gcc \
+    inkscape \
     ruby \
     ruby-devel \
     rubygems \

@@ -1,4 +1,4 @@
-= Asciidoctor Docker Container
+= Asciidoctor Docker Container 
 :source-highlighter: coderay
 
 == The environment
@@ -14,6 +14,7 @@ This Docker container provides:
 * Asciidoctor-fopub
 * Asciidoctor-confluence
 * Lazybones (for Asciidoctor-revealjs)
+* Inkscape
 
 == How to use it
 
