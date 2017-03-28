@@ -27,14 +27,16 @@ RUN dnf install -y tar \
     redhat-rpm-config \
     patch \
     sudo \
-  && dnf clean packages \
-  && (curl -s -k -L -C - -b "oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u112-b15/jdk-8u112-linux-x64.tar.gz | tar xfz -) \
+  && dnf clean packages
+
+RUN (curl -s -k -L -C - -b "oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u112-b15/jdk-8u112-linux-x64.tar.gz | tar xfz -) \
   && mkdir /fopub \
   && curl -L https://api.github.com/repos/asciidoctor/asciidoctor-fopub/tarball | tar xzf - -C /fopub/ --strip-components=1 \
   && touch /tmp/empty.xml \
   && fopub /tmp/empty.xml \
-  && rm /tmp/empty.xml \
-  && gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
+  && rm /tmp/empty.xml
+
+RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc asciidoctor-diagram \
   && gem install --no-ri --no-rdoc asciidoctor-epub3 --version 1.5.0.alpha.6 \
   && gem install --no-ri --no-rdoc rake \
@@ -45,8 +47,9 @@ RUN dnf install -y tar \
   && gem install --no-ri --no-rdoc rouge coderay pygments.rb thread_safe epubcheck kindlegen \
   && gem install --no-ri --no-rdoc slim \
   && gem install --no-ri --no-rdoc haml tilt \
-  && gem install --no-ri --no-rdoc asciidoctor-revealjs \
-  && mkdir $BACKENDS \
+  && gem install --no-ri --no-rdoc asciidoctor-revealjs
+
+RUN mkdir $BACKENDS \
   && (curl -LkSs https://api.github.com/repos/asciidoctor/asciidoctor-backends/tarball | tar xfz - -C $BACKENDS --strip-components=1) \
   && wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | python \
   && easy_install "blockdiag[pdf]" \
