@@ -13,6 +13,7 @@ RUN dnf install -y tar \
     gcc \
     git \
     inkscape \
+    java-1.8.0-openjdk-devel \
     ruby \
     ruby-devel \
     rubygems \
@@ -30,8 +31,7 @@ RUN dnf install -y tar \
     sudo \
   && dnf clean packages
 
-RUN (curl -s -k -L -C - -b "oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u112-b15/jdk-8u112-linux-x64.tar.gz | tar xfz -) \
-  && mkdir /fopub \
+RUN mkdir /fopub \
   && curl -L https://api.github.com/repos/asciidoctor/asciidoctor-fopub/tarball | tar xzf - -C /fopub/ --strip-components=1 \
   && touch /tmp/empty.xml \
   && fopub /tmp/empty.xml \
