@@ -6,11 +6,12 @@ ENV JAVA_HOME /jdk1.8.0_112
 ENV PATH $PATH:$JAVA_HOME/bin:/fopub/bin
 ENV BACKENDS /asciidoctor-backends
 ENV GVM_AUTO_ANSWER true
-ENV ASCIIDOCTOR_VERSION "1.5.5"
+ENV ASCIIDOCTOR_VERSION "1.5.6"
 
 RUN dnf install -y tar \
     make \
     gcc \
+    git \
     inkscape \
     ruby \
     ruby-devel \
