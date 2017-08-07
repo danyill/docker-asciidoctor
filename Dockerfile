@@ -31,12 +31,6 @@ RUN dnf install -y tar \
     sudo \
   && dnf clean packages
 
-RUN mkdir /fopub \
-  && curl -L https://api.github.com/repos/asciidoctor/asciidoctor-fopub/tarball | tar xzf - -C /fopub/ --strip-components=1 \
-  && touch /tmp/empty.xml \
-  && fopub /tmp/empty.xml \
-  && rm /tmp/empty.xml
-
 RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc asciidoctor-diagram \
   && gem install --no-ri --no-rdoc asciidoctor-epub3 --version 1.5.0.alpha.6 \

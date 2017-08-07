@@ -11,7 +11,6 @@ This Docker container provides:
 * Asciidoctor EPUB3 (alpha)
 * Source highlighting using CodeRay or Pygments
 * Asciidoctor backends
-* Asciidoctor-fopub
 * Asciidoctor-confluence
 * Lazybones (for Asciidoctor-revealjs)
 * Inkscape
@@ -53,14 +52,6 @@ asciidoctor-epub3 -r asciidoctor-diagram sample-with-diagram.adoc
 asciidoctor -T /asciidoctor-backends/slim/dzslides myFile.adoc
 #or
 asciidoctor -T $BACKENDS/slim/dzslides myFile.adoc
-----
-
-* To use fopub, you first need to generate the docbook file then use fopub:
-+
-[source, bash]
-----
-asciidoctor -b docbook sample.adoc
-fopub sample.xml
 ----
 
 * To use asciidoctor-confluence
