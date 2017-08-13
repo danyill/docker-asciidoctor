@@ -12,6 +12,7 @@ RUN dnf install -y tar \
     make \
     gcc \
     git \
+    ImageMagick \
     inkscape \
     java-1.8.0-openjdk-devel \
     ruby \
