@@ -8,7 +8,8 @@ ENV BACKENDS /asciidoctor-backends
 ENV GVM_AUTO_ANSWER true
 ENV ASCIIDOCTOR_VERSION "1.5.6"
 
-RUN apt-get install -y --no-install-recommends tar \
+RUN apt-get update && apt-get install -y --no-install-recommends tar \
+    curl \
     make \
     gcc \
     git \
