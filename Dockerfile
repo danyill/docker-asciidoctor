@@ -1,4 +1,4 @@
-FROM fedora
+FROM ubuntu:latest
 
 MAINTAINER Daniel Mulholland <dan.mulholland@gmail.com>
 
@@ -8,29 +8,27 @@ ENV BACKENDS /asciidoctor-backends
 ENV GVM_AUTO_ANSWER true
 ENV ASCIIDOCTOR_VERSION "1.5.6"
 
-RUN dnf install -y tar \
+RUN apt-get install -y --no-install-recommends tar \
     make \
     gcc \
     git \
-    ImageMagick \
+    imagemagick \
     inkscape \
-    java-1.8.0-openjdk-devel \
+    openjdk-8-jdk \
     ruby \
-    ruby-devel \
+    ruby-all-dev \
     rubygems \
     graphviz \
-    rubygem-nokogiri \
+    ruby-nokogiri \
     unzip \
     findutils \
-    which \
     wget \
-    python-devel \
-    zlib-devel \
-    libjpeg-devel \
-    redhat-rpm-config \
+    python-all-dev \
+    zlib1g-dev \
+    libjpeg-dev \
     patch \
     sudo \
-  && dnf clean packages
+  && rm -rf /var/lib/apt/lists/*
 
 RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc asciidoctor-diagram \
