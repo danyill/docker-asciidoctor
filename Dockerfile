@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends tar \
     findutils \
     wget \
     python-all-dev \
+    python-setuptools \
     zlib1g-dev \
     libjpeg-dev \
     patch \
@@ -46,7 +47,6 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
 
 RUN mkdir $BACKENDS \
   && (curl -LkSs https://api.github.com/repos/asciidoctor/asciidoctor-backends/tarball | tar xfz - -C $BACKENDS --strip-components=1) \
-  && wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | python \
   && easy_install "blockdiag[pdf]" \
   && easy_install seqdiag \
   && easy_install actdiag \
