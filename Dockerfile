@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends tar \
     graphviz \
     ruby-nokogiri \
     unzip \
+    zip \ 
     findutils \
     wget \
     python-all-dev \
