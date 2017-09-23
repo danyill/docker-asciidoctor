@@ -8,7 +8,9 @@ ENV BACKENDS /asciidoctor-backends
 ENV GVM_AUTO_ANSWER true
 ENV ASCIIDOCTOR_VERSION "1.5.6"
 
-RUN apt-get update && apt-get install -y --no-install-recommends tar \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
     curl \
     make \
     gcc \
@@ -16,11 +18,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends tar \
     imagemagick \
     inkscape \
     openjdk-8-jdk \
+    pkg-config \
     ruby \
     ruby-all-dev \
     rubygems \
     graphviz \
     ruby-nokogiri \
+    tar \
     unzip \
     zip \
     findutils \
