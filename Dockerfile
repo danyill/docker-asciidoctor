@@ -45,18 +45,7 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc slim \
   && gem install --no-ri --no-rdoc haml tilt \
   && gem install --no-ri --no-rdoc asciidoctor-revealjs
-
-RUN mkdir $BACKENDS \
-  && (curl -LkSs https://api.github.com/repos/asciidoctor/asciidoctor-backends/tarball | tar xfz - -C $BACKENDS --strip-components=1) \
-  && easy_install "blockdiag[pdf]" \
-  && easy_install seqdiag \
-  && easy_install actdiag \
-  && easy_install nwdiag \
-  && (curl -s get.sdkman.io | bash) \
-  && /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh" \
-  && /bin/bash -c "echo sdkman_auto_answer=true > ~/.sdkman/etc/config" \
-  && /bin/bash -c -l "sdk install lazybones"
-
+  
 WORKDIR /documents
 VOLUME /documents
 
