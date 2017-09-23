@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends tar \
     graphviz \
     ruby-nokogiri \
     unzip \
-    zip \ 
+    zip \
     findutils \
     wget \
     python-all-dev \
@@ -44,8 +44,9 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc rouge coderay pygments.rb thread_safe epubcheck kindlegen \
   && gem install --no-ri --no-rdoc slim \
   && gem install --no-ri --no-rdoc haml tilt \
-  && gem install --no-ri --no-rdoc asciidoctor-revealjs
-  
+  && gem install --no-ri --no-rdoc asciidoctor-revealjs \
+  && gem install --no-ri --no-rdoc rugged
+
 WORKDIR /documents
 VOLUME /documents
 
