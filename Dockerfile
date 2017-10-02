@@ -43,13 +43,19 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc rake \
   && gem install --no-ri --no-rdoc epubcheck --version 3.0.1 \
   && gem install --no-ri --no-rdoc kindlegen --version 3.0.1 \
-  && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.alpha.13 \
+  && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.alpha.15 \
   && gem install --no-ri --no-rdoc asciidoctor-confluence \
   && gem install --no-ri --no-rdoc rouge coderay pygments.rb thread_safe epubcheck kindlegen \
   && gem install --no-ri --no-rdoc slim \
   && gem install --no-ri --no-rdoc haml tilt \
   && gem install --no-ri --no-rdoc asciidoctor-revealjs \
   && gem install --no-ri --no-rdoc rugged
+  && gem install --no-ri --no-rdoc asciidoctor-rouge
+
+RUN git clone https://github.com/cygri/htmldiff \
+    && cd htmldiff \
+    && python setup.py sdist \
+    && python setup.py install
 
 WORKDIR /documents
 VOLUME /documents
