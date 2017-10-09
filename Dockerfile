@@ -50,7 +50,8 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc haml tilt \
   && gem install --no-ri --no-rdoc asciidoctor-revealjs \
   && gem install --no-ri --no-rdoc rugged \
-  && gem install --no-ri --no-rdoc asciidoctor-rouge
+  && gem install --no-ri --no-rdoc asciidoctor-rouge \
+  && gem install --no-ri --no-rdoc fastimage
 
 RUN git clone https://github.com/cygri/htmldiff \
     && cd htmldiff \
