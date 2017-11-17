@@ -12,11 +12,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     cmake \
     curl \
-    make \
+    findutils \
     gcc \
     git \
     imagemagick \
     inkscape \
+    make \
+    nodejs \
+    npm \
     openjdk-8-jdk \
     pkg-config \
     ruby \
@@ -27,7 +30,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tar \
     unzip \
     zip \
-    findutils \
     wget \
     python-all-dev \
     python-setuptools \
@@ -45,6 +47,7 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc kindlegen --version 3.0.1 \
   && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.alpha.15 \
   && gem install --no-ri --no-rdoc asciidoctor-confluence \
+  && gem install --no-ri --no-rdoc bundler \
   && gem install --no-ri --no-rdoc rouge coderay pygments.rb thread_safe epubcheck kindlegen \
   && gem install --no-ri --no-rdoc slim \
   && gem install --no-ri --no-rdoc haml tilt \
@@ -57,6 +60,9 @@ RUN git clone https://github.com/cygri/htmldiff \
     && cd htmldiff \
     && python setup.py sdist \
     && python setup.py install
+
+RUN  npm install -g yarn \
+    && npm install -g gulp-cli
 
 WORKDIR /documents
 VOLUME /documents
