@@ -8,6 +8,8 @@ ENV BACKENDS /asciidoctor-backends
 ENV GVM_AUTO_ANSWER true
 ENV ASCIIDOCTOR_VERSION "1.5.6"
 
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     cmake \
