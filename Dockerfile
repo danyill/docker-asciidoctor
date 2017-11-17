@@ -8,8 +8,6 @@ ENV BACKENDS /asciidoctor-backends
 ENV GVM_AUTO_ANSWER true
 ENV ASCIIDOCTOR_VERSION "1.5.6"
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     cmake \
@@ -20,8 +18,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     imagemagick \
     inkscape \
     make \
-    nodejs \
-    npm \
     openjdk-8-jdk \
     pkg-config \
     ruby \
@@ -38,8 +34,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zlib1g-dev \
     libjpeg-dev \
     patch \
-    sudo \
-  && rm -rf /var/lib/apt/lists/*
+    sudo
+
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    nodejs \
+    npm \
+    && rm -rf /var/lib/apt/lists/*
+
 
 RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc asciidoctor-diagram \
