@@ -5,7 +5,7 @@
 
 This Docker container provides:
 
-* Asciidoctor 1.5.5
+* Asciidoctor 1.5.6
 * Aciidoctor Diagram with Graphviz integration so you can use plantuml and graphiz diagrams
 * Asciidoctor PDF (alpha)
 * Asciidoctor EPUB3 (alpha)
@@ -14,6 +14,7 @@ This Docker container provides:
 * Asciidoctor-confluence
 * Lazybones (for Asciidoctor-revealjs)
 * Inkscape
+* Node 6.x and npm
 
 == How to use it
 
@@ -21,7 +22,7 @@ Just run:
 
 [source,bash]
 ----
-docker run -it -v <your directory>:/documents/ asciidoctor/docker-asciidoctor
+docker run -it -v <your directory>:/documents/ danyill/docker-asciidoctor
 ----
 
 It will be directly mapped with [path]_/documents_ of the container.
@@ -65,14 +66,18 @@ asciidoctor-confluence --host HOSTNAME --spaceKey SPACEKEY --title TITLE --usern
 +
 [source, bash]
 ----
-docker run --rm -v $(pwd):/documents/ asciidoctor/docker-asciidoctor asciidoctor-pdf index.adoc
+docker run --rm -v $(pwd):/documents/ danyill/docker-asciidoctor asciidoctor-pdf index.adoc
 ----
 
 == How to update this container
 
 Make changes:
 
-. In the working path: `docker build --tag danyill/asciidoctor:latest .`
-. We can build directly from the github repo with `docker build -t danyill/asciidoctor:latest git@github.com:danyill/docker-asciidoctor.git`
+. In the working path: `docker build --tag danyill/docker-asciidoctor:latest .`
+. We can build directly from the github repo with `docker build -t danyill/docker-asciidoctor:latest git@github.com:danyill/docker-asciidoctor.git`
 . Login to docker with `docker login`
 . Push the new image with `docker push`
+
+Run bash inside the container:
+
+`docker run -i -t  danyill/docker-asciidoctor bash`
