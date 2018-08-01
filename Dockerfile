@@ -6,7 +6,7 @@ ENV JAVA_HOME /jdk1.8.0_112
 ENV PATH $PATH:$JAVA_HOME/bin:/fopub/bin
 ENV BACKENDS /asciidoctor-backends
 ENV GVM_AUTO_ANSWER true
-ENV ASCIIDOCTOR_VERSION "1.5.6"
+ENV ASCIIDOCTOR_VERSION "1.5.7.1"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
