@@ -18,24 +18,26 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gnupg2 \
     imagemagick \
     inkscape \
+    libgit2-dev
+    libjpeg-dev \
+    libtool \
     make \
     openjdk-8-jdk \
     pkg-config \
+    patch \
+    python-all-dev \
+    python-setuptools \    
     ruby \
     ruby-all-dev \
     rubygems \
     graphviz \
     ruby-nokogiri \
+    sudo \
     tar \
     unzip \
     zip \
     wget \
-    python-all-dev \
-    python-setuptools \
-    zlib1g-dev \
-    libjpeg-dev \
-    patch \
-    sudo
+    zlib1g-dev
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
