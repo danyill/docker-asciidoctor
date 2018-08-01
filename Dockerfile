@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     findutils \
     gcc \
     git \
+    gnupg2 \
     imagemagick \
     inkscape \
     make \
