@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gnupg2 \
     imagemagick \
     inkscape \
-    libgit2-dev
+    libgit2-dev \
     libjpeg-dev \
     libtool \
     make \
