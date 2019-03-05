@@ -8,6 +8,17 @@ ENV BACKENDS /asciidoctor-backends
 ENV GVM_AUTO_ANSWER true
 ENV ASCIIDOCTOR_VERSION "1.5.7.1"
 
+# Set the locale
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales
+
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
+
+ENV LANG en_US.UTF-8
+
+# No let's get cracking
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     cmake \
@@ -20,13 +31,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     inkscape \
     libgit2-dev \
     libjpeg-dev \
+    libssl-dev \
     libtool \
     make \
     openjdk-8-jdk \
     pkg-config \
     patch \
     python-all-dev \
-    python-setuptools \    
+    python-setuptools \
     ruby \
     ruby-all-dev \
     rubygems \
@@ -39,7 +51,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     zlib1g-dev
 
-RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     nodejs \
@@ -60,7 +72,8 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc asciidoctor-revealjs \
   && gem install --no-ri --no-rdoc rugged \
   && gem install --no-ri --no-rdoc asciidoctor-rouge \
-  && gem install --no-ri --no-rdoc fastimage
+  && gem install --no-ri --no-rdoc fastimage \
+  && gem install --no-ri --no-rdoc html-proofer
 
 RUN git clone https://github.com/cygri/htmldiff \
     && cd htmldiff \

@@ -14,7 +14,7 @@ This Docker container provides:
 * Asciidoctor-confluence
 * Lazybones (for Asciidoctor-revealjs)
 * Inkscape
-* Node 6.x and npm
+* Node 8.x and npm
 
 == How to use it
 
@@ -76,8 +76,14 @@ Make changes:
 . In the working path: `docker build --tag danyill/docker-asciidoctor:latest .`
 . We can build directly from the github repo with `docker build -t danyill/docker-asciidoctor:latest git@github.com:danyill/docker-asciidoctor.git`
 . Login to docker with `docker login`
-. Push the new image with `docker push`
+. Push the new image with `docker push danyill/docker-asciidoctor:latest`
 
 Run bash inside the container:
 
 `docker run -i -t  danyill/docker-asciidoctor bash`
+
+If we have a failed build, take the preceding build's hash and enter it:
+
+`docker run --rm -it <id_last_working_layer> bash -il`
+
+run the previous command and then examine the logs.
