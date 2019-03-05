@@ -77,10 +77,12 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc fastimage \
   && gem install --no-ri --no-rdoc html-proofer
 
-RUN git clone https://github.com/danyill/htmldiff \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-setuptools \
+    && git clone https://github.com/danyill/htmldiff \
     && cd htmldiff \
-    && python setup.py sdist \
-    && python setup.py install
+    && python3 setup.py sdist \
+    && python3 setup.py install
 
 RUN  npm install -g yarn \
     && npm install -g gulp-cli
