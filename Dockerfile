@@ -25,6 +25,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     openjdk-8-jdk \
     pkg-config \
     patch \
+    python3 \
+    python3-pip \
     python-all-dev \
     python-setuptools \    
     ruby \
@@ -62,7 +64,7 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc asciidoctor-rouge \
   && gem install --no-ri --no-rdoc fastimage
 
-RUN git clone https://github.com/cygri/htmldiff \
+RUN git clone https://github.com/danyill/htmldiff \
     && cd htmldiff \
     && python setup.py sdist \
     && python setup.py install
