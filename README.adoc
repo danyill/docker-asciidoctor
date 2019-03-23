@@ -1,20 +1,23 @@
 = Asciidoctor Docker Container
-:source-highlighter: coderay
+:sectnums:
+:toc:
+:source-highlighter: rouge
 
 == The environment
 
 This Docker container provides:
 
-* Asciidoctor 1.5.7.1
-* Aciidoctor Diagram with Graphviz integration so you can use plantuml and graphiz diagrams
+* Asciidoctor 2.0.0
+* Asciidoctor.js
+* Aciidoctor Diagram with Graphviz, Vega, Seqdiag, NetworkDiag, Blockdiag integration so you can use a wide range of diagrams
 * Asciidoctor PDF (alpha)
 * Asciidoctor EPUB3 (alpha)
-* Source highlighting using CodeRay or Pygments
+* Source highlighting using Rouge, CodeRay or Pygments
 * Asciidoctor backends
 * Asciidoctor-confluence
 * Lazybones (for Asciidoctor-revealjs)
 * Inkscape
-* Node 8.x and npm
+* Node 10.x and npm and yard
 
 == How to use it
 
@@ -73,17 +76,52 @@ docker run --rm -v $(pwd):/documents/ danyill/docker-asciidoctor asciidoctor-pdf
 
 Make changes:
 
-. In the working path: `docker build --tag danyill/docker-asciidoctor:latest .`
-. We can build directly from the github repo with `docker build -t danyill/docker-asciidoctor:latest git@github.com:danyill/docker-asciidoctor.git`
+. In the working path: 
++
+[source,bash]
+----
+docker build --tag danyill/docker-asciidoctor:latest .
+----
+
+. We can build directly from the github repo with 
++
+[source,bash]
+----
+docker build -t danyill/docker-asciidoctor:latest git@github.com:danyill/docker-asciidoctor.git
+----
+
 . Login to docker with `docker login`
-. Push the new image with `docker push danyill/docker-asciidoctor:latest`
+
+. Push the new image with
++
+[source,bash]
+----
+docker push danyill/docker-asciidoctor:latest
+----
+
+. Releasing a version
++
+[source,bash]
+----
+docker build --tag danyill/docker-asciidoctor:1.0.0 --tag danyill/asciidoctor:latest .
+docker push danyill/docker-asciidoctor:latest danyill/docker-asciidoctor:1.0.0
+----
+
+== Checking Errors
 
 Run bash inside the container:
 
-`docker run -i -t  danyill/docker-asciidoctor bash`
+[source,bash]
+----
+docker run -i -t  danyill/docker-asciidoctor bash
+----
 
 If we have a failed build, take the preceding build's hash and enter it:
 
-`docker run --rm -it <id_last_working_layer> bash -il`
+[source,bash]
+----
+docker run --rm -it <id_last_working_layer> bash -il
+----
 
-run the previous command and then examine the logs.
+then run the previous command from the Dockerfile and then examine the logs.
+
