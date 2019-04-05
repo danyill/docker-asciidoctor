@@ -7,7 +7,7 @@
 
 This Docker container provides:
 
-* Asciidoctor 2.0.0
+* Asciidoctor 2.0.6
 * Asciidoctor.js
 * Aciidoctor Diagram with Graphviz, Vega, Seqdiag, NetworkDiag, Blockdiag integration so you can use a wide range of diagrams
 * Asciidoctor PDF (alpha)
@@ -103,8 +103,10 @@ docker push danyill/docker-asciidoctor:latest
 +
 [source,bash]
 ----
-docker build --tag danyill/docker-asciidoctor:1.0.0 --tag danyill/asciidoctor:latest .
-docker push danyill/docker-asciidoctor:latest danyill/docker-asciidoctor:1.0.0
+docker build --tag danyill/docker-asciidoctor:1.x.x .
+docker build --tag danyill/asciidoctor:latest .
+docker push danyill/docker-asciidoctor:1.x.x
+docker push danyill/docker-asciidoctor:latest 
 ----
 
 == Checking Errors
