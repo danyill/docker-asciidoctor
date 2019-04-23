@@ -6,7 +6,7 @@ ENV JAVA_HOME /jdk1.8.0_112
 ENV PATH $PATH:$JAVA_HOME/bin:/fopub/bin
 ENV BACKENDS /asciidoctor-backends
 ENV GVM_AUTO_ANSWER true
-ENV ASCIIDOCTOR_VERSION "2.0.6"
+ENV ASCIIDOCTOR_VERSION "2.0.8"
 
 # Set the locale
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales
@@ -65,11 +65,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc asciidoctor-diagram \
-  && gem install --no-ri --no-rdoc asciidoctor-epub3 --version 1.5.0.alpha.8 \
+  && gem install --no-ri --no-rdoc asciidoctor-epub3 --version 1.5.0.alpha.9 \
   && gem install --no-ri --no-rdoc rake \
   && gem install --no-ri --no-rdoc epubcheck --version 3.0.1 \
   && gem install --no-ri --no-rdoc kindlegen --version 3.0.1 \
-  && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.alpha.16 \
+  && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.alpha.17 \
   && gem install --no-ri --no-rdoc asciidoctor-confluence \
   && gem install --no-ri --no-rdoc bundler \
   && gem install --no-ri --no-rdoc rouge coderay pygments.rb thread_safe epubcheck kindlegen \
