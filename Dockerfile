@@ -6,7 +6,7 @@ ENV JAVA_HOME /jdk1.8.0_112
 ENV PATH $PATH:$JAVA_HOME/bin:/fopub/bin
 ENV BACKENDS /asciidoctor-backends
 ENV GVM_AUTO_ANSWER true
-ENV ASCIIDOCTOR_VERSION "2.0.8"
+ENV ASCIIDOCTOR_VERSION "2.0.9"
 
 # Set the locale
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales
@@ -39,6 +39,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     make \
     openjdk-8-jdk \
     pkg-config \
+    pandoc \
     patch \
     plantuml \
     python3 \
