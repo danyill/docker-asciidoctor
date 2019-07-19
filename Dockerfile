@@ -6,7 +6,7 @@ ENV JAVA_HOME /jdk1.8.0_112
 ENV PATH $PATH:$JAVA_HOME/bin:/fopub/bin
 ENV BACKENDS /asciidoctor-backends
 ENV GVM_AUTO_ANSWER true
-ENV ASCIIDOCTOR_VERSION "2.0.9"
+ENV ASCIIDOCTOR_VERSION "2.0.10"
 
 # Set the locale
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales
@@ -82,7 +82,10 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc rugged \
   && gem install --no-ri --no-rdoc asciidoctor-rouge \
   && gem install --no-ri --no-rdoc fastimage \
-  && gem install --no-ri --no-rdoc html-proofer
+  && gem install --no-ri --no-rdoc html-proofer \
+  && gem install --no-ri --no-rdoc asciidoctor-question
+  
+  
 
 RUN pip3 install actdiag blockdiag seqdiag nwdiag
 
