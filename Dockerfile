@@ -35,7 +35,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     inkscape \
     libcairo2-dev \
     libffi-dev \
-    libgdk-pixbuf2.0-dev
+    libgdk-pixbuf2.0-dev \
     libgif-dev \
     libgit2-dev \
     libjpeg-dev \
