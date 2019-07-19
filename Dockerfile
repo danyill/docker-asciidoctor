@@ -20,10 +20,13 @@ ENV LANG en_US.UTF-8
 # Now let's get cracking
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    bison \
     build-essential \
     cmake \
     curl \
     findutils \
+    fonts-lyx \
+    flex \
     gcc \
     git \
     gnupg2 \
@@ -31,15 +34,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     imagemagick \
     inkscape \
     libcairo2-dev \
+    libffi-dev \
+    libgdk-pixbuf2.0-dev
     libgif-dev \
     libgit2-dev \
     libjpeg-dev \
+    libpango1.0-dev \
     libssl-dev \
     libtool \
+    libxml2-dev \
     make \
     openjdk-8-jdk \
     pkg-config \
     pandoc \
+    pango \
     patch \
     plantuml \
     python3 \
