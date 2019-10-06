@@ -79,7 +79,7 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc rake \
   && gem install --no-ri --no-rdoc epubcheck --version 3.0.1 \
   && gem install --no-ri --no-rdoc kindlegen --version 3.0.1 \
-  && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.beta.1 \
+  && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.beta.5 \
   && gem install --no-ri --no-rdoc asciidoctor-confluence \
   && gem install --no-ri --no-rdoc bundler \
   && gem install --no-ri --no-rdoc rouge coderay pygments.rb thread_safe epubcheck kindlegen \
@@ -90,9 +90,10 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc asciidoctor-rouge \
   && gem install --no-ri --no-rdoc fastimage \
   && gem install --no-ri --no-rdoc html-proofer \
-  && gem install --no-ri --no-rdoc asciidoctor-question
-  
-  
+  && gem install --no-ri --no-rdoc asciidoctor-question \
+  && gem install --no-ri --no-rdoc specific_install
+
+RUN gem specific_install -l https://gitlab.com/danyill/pdf-hyperlinking-play -b release_v0.1.0
 
 RUN pip3 install actdiag blockdiag seqdiag nwdiag
 

@@ -2,15 +2,16 @@
 :sectnums:
 :toc:
 :source-highlighter: rouge
+:uri-tp-pdf-links: https://gitlab.com/danyill/pdf-hyperlinking-play
 
 == The environment
 
-This Docker container provides:
+This Docker container is a _highly_ modified fork of the orignal asciidoctor docker container and provides a range of tools for use in CI including:
 
-* Asciidoctor 2.0.6
+* Asciidoctor 2.0.10
 * Asciidoctor.js
 * Aciidoctor Diagram with Graphviz, Vega, Seqdiag, NetworkDiag, Blockdiag integration so you can use a wide range of diagrams
-* Asciidoctor PDF (alpha)
+* Asciidoctor PDF (beta)
 * Asciidoctor EPUB3 (alpha)
 * Source highlighting using Rouge, CodeRay or Pygments
 * Asciidoctor backends
@@ -18,6 +19,7 @@ This Docker container provides:
 * Lazybones (for Asciidoctor-revealjs)
 * Inkscape
 * Node 10.x and npm and yard
+* Various bespoke tools for processing pdfs (see {uri-tp-pdf-links}[here])
 
 == How to use it
 
@@ -103,6 +105,7 @@ docker push danyill/docker-asciidoctor:latest
 +
 [source,bash]
 ----
+git tag -m "Release" -s v1.x.x && git push --tags
 docker build --tag danyill/docker-asciidoctor:1.x.x .
 docker build --tag danyill/asciidoctor:latest .
 docker push danyill/docker-asciidoctor:1.x.x
