@@ -93,6 +93,8 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc asciidoctor-question \
   && gem install --no-ri --no-rdoc specific_install
 
+ARG TEST=STARTFROMHERE1
+
 RUN gem specific_install -l https://gitlab.com/danyill/pdf-hyperlinking-play -b release_v0.1.0
 
 RUN pip3 install actdiag blockdiag seqdiag nwdiag
