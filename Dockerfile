@@ -65,6 +65,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     zlib1g-dev
 
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+    && apt-get update \
+    && apt-get install -y google-chrome-unstable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf \
+      --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -106,9 +113,18 @@ RUN git clone https://github.com/danyill/htmldiff \
     && python3 setup.py sdist \
     && python3 setup.py install
 
+# Install puppeteer so it's available in the container.
 RUN npm config set user 0 \
     && npm config set unsafe-perm true \
-    && npm install -g yarn \
+    npm install -g puppeteer \
+    # Add user so we don't need --no-sandbox.
+    # same layer as npm install to keep re-chowned files from using up several hundred MBs more space
+    && groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
+    && mkdir -p /home/pptruser/Downloads \
+    && chown -R pptruser:pptruser /home/pptruser \
+    && chown -R pptruser:pptruser /node_modules
+
+RUN npm install -g yarn \    
     && npm install -g npm i -g @asciidoctor/core asciidoctor asciidoctor-pdf asciidoctor-cli asciidoctor-katex gulp-cli vega vega-cli vega-lite vega-embed
 
 WORKDIR /documents
