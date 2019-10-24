@@ -116,7 +116,7 @@ RUN git clone https://github.com/danyill/htmldiff \
 # Install puppeteer so it's available in the container.
 RUN npm config set user 0 \
     && npm config set unsafe-perm true \
-    npm install -g puppeteer \
+    && npm install -g puppeteer \
     # Add user so we don't need --no-sandbox.
     # same layer as npm install to keep re-chowned files from using up several hundred MBs more space
     && groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
