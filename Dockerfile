@@ -109,7 +109,7 @@ RUN git clone https://github.com/danyill/htmldiff \
 RUN npm config set user 0 \
     && npm config set unsafe-perm true \
     && npm install -g yarn \
-    && npm install -g npm i -g asciidoctor asciidoctor-pdf asciidoctor-cli asciidoctor-katex gulp-cli vega vega-cli vega-lite vega-embed
+    && npm install -g npm i -g @asciidoctor/core asciidoctor asciidoctor-pdf asciidoctor-cli asciidoctor-katex gulp-cli vega vega-cli vega-lite vega-embed
 
 WORKDIR /documents
 VOLUME /documents
