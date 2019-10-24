@@ -79,6 +79,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
+  && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.beta.5 \
   && gem install --no-ri --no-rdoc asciidoctor-diagram \
   && gem install --no-ri --no-rdoc asciidoctor-katex \
   && gem install --no-ri --no-rdoc asciidoctor-mathematical \
@@ -99,8 +100,7 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
   && gem install --no-ri --no-rdoc asciidoctor-question \
   && gem install --no-ri --no-rdoc specific_install
 
-# temporarily removed
-#   && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.beta.5 \
+
 
 ARG TEST=STARTFROMHERE1
 
