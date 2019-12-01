@@ -44,6 +44,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libtool \
     libxml2-dev \
     make \
+    nano \
     openjdk-8-jdk \
     pkg-config \
     pandoc \
