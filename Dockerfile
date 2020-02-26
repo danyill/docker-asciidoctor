@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     flex \
     gcc \
     git \
+    git-lfs \
     gnupg2 \
     graphviz \
     imagemagick \
