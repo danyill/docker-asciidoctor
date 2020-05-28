@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:focal
 
 MAINTAINER Daniel Mulholland <dan.mulholland@gmail.com>
 
@@ -9,7 +9,7 @@ ENV GVM_AUTO_ANSWER true
 ENV ASCIIDOCTOR_VERSION "2.0.10"
 
 # Set the locale
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales tzdata
 
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
