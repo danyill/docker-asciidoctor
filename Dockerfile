@@ -80,27 +80,27 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     nodejs \
     && rm -rf /var/lib/apt/lists/*
 
-RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
-  && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.3 \
-  && gem install --no-ri --no-rdoc asciidoctor-diagram \
-  && gem install --no-ri --no-rdoc asciidoctor-katex \
-  && gem install --no-ri --no-rdoc asciidoctor-mathematical \
-  && gem install --no-ri --no-rdoc asciidoctor-epub3 --version 1.5.0.alpha.9 \
-  && gem install --no-ri --no-rdoc rake \
-  && gem install --no-ri --no-rdoc epubcheck --version 3.0.1 \
-  && gem install --no-ri --no-rdoc kindlegen --version 3.0.1 \
-  && gem install --no-ri --no-rdoc asciidoctor-confluence \
-  && gem install --no-ri --no-rdoc bundler \
-  && gem install --no-ri --no-rdoc rouge coderay pygments.rb thread_safe epubcheck kindlegen \
-  && gem install --no-ri --no-rdoc slim \
-  && gem install --no-ri --no-rdoc haml tilt \
-  && gem install --no-ri --no-rdoc asciidoctor-revealjs \
-  && gem install --no-ri --no-rdoc rugged \
-  && gem install --no-ri --no-rdoc asciidoctor-rouge \
-  && gem install --no-ri --no-rdoc fastimage \
-  && gem install --no-ri --no-rdoc html-proofer \
-  && gem install --no-ri --no-rdoc asciidoctor-question \
-  && gem install --no-ri --no-rdoc specific_install
+RUN  gem install --no-document asciidoctor --version $ASCIIDOCTOR_VERSION \
+  && gem install --no-document asciidoctor-pdf --version 1.5.3 \
+  && gem install --no-document asciidoctor-diagram \
+  && gem install --no-document asciidoctor-katex \
+  && gem install --no-document asciidoctor-mathematical \
+  && gem install --no-document asciidoctor-epub3 --version 1.5.0.alpha.9 \
+  && gem install --no-document rake \
+  && gem install --no-document epubcheck --version 3.0.1 \
+  && gem install --no-document kindlegen --version 3.0.1 \
+  && gem install --no-document asciidoctor-confluence \
+  && gem install --no-document bundler \
+  && gem install --no-document rouge coderay pygments.rb thread_safe epubcheck kindlegen \
+  && gem install --no-document slim \
+  && gem install --no-document haml tilt \
+  && gem install --no-document asciidoctor-revealjs \
+  && gem install --no-document rugged \
+  && gem install --no-document asciidoctor-rouge \
+  && gem install --no-document fastimage \
+  && gem install --no-document html-proofer \
+  && gem install --no-document asciidoctor-question \
+  && gem install --no-document specific_install
 
 
 
