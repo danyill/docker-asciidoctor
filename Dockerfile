@@ -81,7 +81,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
-  && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.beta.5 \
+  && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.3 \
   && gem install --no-ri --no-rdoc asciidoctor-diagram \
   && gem install --no-ri --no-rdoc asciidoctor-katex \
   && gem install --no-ri --no-rdoc asciidoctor-mathematical \
@@ -106,7 +106,7 @@ RUN  gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
 
 ARG TEST=STARTFROMHERE1
 
-RUN gem specific_install -l https://gitlab.com/danyill/pdf-hyperlinking-play -b release_v0.2.0
+RUN gem specific_install -l https://gitlab.com/danyill/pdf-hyperlinking-play -b release_v0.3.0
 
 RUN pip3 install actdiag blockdiag seqdiag nwdiag
 
@@ -120,7 +120,7 @@ RUN npm config set user 0 \
     && npm config set unsafe-perm true \
     && npm install -g yarn  \
     && npm install -g puppeteer \
-    && npm install -g --force @asciidoctor/core @asciidoctor/cli asciidoctor asciidoctor-pdf asciidoctor-katex gulp-cli vega vega-cli vega-lite vega-embed
+    && npm install -g --force @asciidoctor/core @asciidoctor/cli asciidoctor asciidoctor-pdf asciidoctor-katex asciidoctor-kroki gulp-cli vega vega-cli vega-lite vega-embed
 
 WORKDIR /documents
 VOLUME /documents
